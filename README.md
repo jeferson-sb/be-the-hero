@@ -45,7 +45,10 @@ $ yarn dev
 ## TODO
 
 - [ ] Criar release 1.0.0 do app
-- [ ] Exibir total de apoiadores
+- [ ] Adicionar Styled Components
+- [ ] Adicionar mais testes
+- [ ] Adicionar autenticação JWT
+- [ ] Exibir total de apoiadores(heroes)
 - [ ] Exibir o progresso do arrecadado.
 
 ## 📝 License
