@@ -9,9 +9,6 @@ const SessionController = require('./controllers/SessionController');
 routes.post(
   '/sessions',
   celebrate({
-    [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required()
-    }).unknown(),
     [Segments.BODY]: Joi.object({
       id: Joi.string().required()
     })
