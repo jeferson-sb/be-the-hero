@@ -1,35 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { View, Image, Text, TouchableOpacity, FlatList } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import React, { useEffect, useState } from 'react';
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  ActivityIndicator
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-import api from "../../services/api";
-import logoImg from "../../assets/logo.png";
-import styles from "./styles";
+import api from '../../services/api';
+import logoImg from '../../assets/logo.png';
+import styles from './styles';
 
-export default function Incidents({ navigation, route }) {
+export default function Incidents({ navigation }) {
   const [incidents, setIncidents] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    async function loadIncidents() {
-      if (loading) {
-        return false;
-      }
-
-      if (total > 0 && incidents.length === total) {
-        return;
-      }
-      setLoading(true);
-      const response = await api.get("/api/incidents", {
-        params: { page }
-      });
-      setIncidents([...incidents, ...response.data]);
-      setTotal(response.headers["X-Total-Count"]);
-      setPage(page + 1);
-      setLoading(false);
+  async function loadIncidents() {
+    if (loading) {
+      return false;
     }
+
+    if (total > 0 && incidents.length === total) {
+      return;
+    }
+    setLoading(true);
+    const response = await api.get('/api/incidents', {
+      params: { page }
+    });
+
+    if (response.data.length) {
+      setIncidents([...incidents, ...response.data]);
+      setTotal(response.headers['x-total-count']);
+      setPage(page + 1);
+    }
+    setLoading(false);
+  }
+  useEffect(() => {
     loadIncidents();
   }, []);
 
@@ -43,9 +53,13 @@ export default function Incidents({ navigation, route }) {
       </View>
 
       <Text style={styles.title}>Bem-vindo!</Text>
-      <Text style={styles.description}>
-        Escolha um dos casos abaixo e salve o dia!
-      </Text>
+      {!incidents.length ? (
+        <Text>Nenhum caso disponível no momento :(</Text>
+      ) : (
+        <Text style={styles.description}>
+          Escolha um dos casos abaixo e salve o dia!
+        </Text>
+      )}
       <FlatList
         style={styles.incidentList}
         data={incidents}
@@ -63,14 +77,14 @@ export default function Incidents({ navigation, route }) {
 
             <Text style={styles.incidentProperty}>VALOR:</Text>
             <Text style={styles.incidentValue}>
-              {Intl.NumberFormat({ style: "currency", curreny: "BRL" }).format(
+              {Intl.NumberFormat({ style: 'currency', curreny: 'BRL' }).format(
                 incident.value
               )}
             </Text>
 
             <TouchableOpacity
               style={styles.detailsButton}
-              onPress={() => navigation.navigate("Detail", { incident })}
+              onPress={() => navigation.navigate('Detail', { incident })}
             >
               <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
               <Feather name="arrow-right" size={16} color="#e02041" />
@@ -78,6 +92,13 @@ export default function Incidents({ navigation, route }) {
           </View>
         )}
       />
+      {loading ? (
+        <ActivityIndicator
+          size="small"
+          color="#e02041"
+          style={{ marginTop: 10 }}
+        />
+      ) : null}
     </View>
   );
 }
