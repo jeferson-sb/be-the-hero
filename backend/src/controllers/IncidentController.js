@@ -15,10 +15,11 @@ async function index(req, res) {
       'ongs.city',
       'ongs.uf'
     ]);
+  const total = count['count(*)'] || count['count'];
 
-  res.header('X-Total-Count', count['count(*)']);
+  res.header('X-Total-Count', total);
   return res.json({
-    length: count['count(*)'],
+    length: total,
     data: incidents
   });
 }
