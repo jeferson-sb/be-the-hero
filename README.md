@@ -2,7 +2,9 @@
 
 Apoie ONGs, apoie as boas causas, **be a hero!**
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/706e3f48-310b-4f58-aa3f-d62b4951547d/deploy-status)](https://app.netlify.com/sites/be-thehero/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/706e3f48-310b-4f58-aa3f-d62b4951547d/deploy-status)](https://app.netlify.com/sites/be-thehero/deploys) ![](https://img.shields.io/badge/omnistack-11-blueviolet?style=flat-square)
+![](https://img.shields.io/github/v/release/jeferson-sb/be-the-hero?style=flat-square)
+
 ![alt Mockup frontend](.github/mockup.png)
 
 ## 💻 Demo
@@ -11,7 +13,7 @@ Apoie ONGs, apoie as boas causas, **be a hero!**
 
 ### 📱 App
 
-Em breve...
+[Download para Android](https://github.com/jeferson-sb/be-the-hero/releases/tag/1.0.0)
 
 ## 🚀 Quick start
 
@@ -44,7 +46,7 @@ $ yarn dev
 
 ## TODO
 
-- [ ] Criar release 1.0.0 do app
+- [x] Criar release 1.0.0 do app
 - [ ] Adicionar Styled Components
 - [ ] Adicionar mais testes
 - [ ] Adicionar autenticação JWT

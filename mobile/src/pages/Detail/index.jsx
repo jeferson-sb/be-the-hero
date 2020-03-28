@@ -1,23 +1,21 @@
-import React from "react";
-import { View, TouchableOpacity, Text, Linking, Image } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import * as MailCompose from "expo-mail-composer";
+import React from 'react';
+import { View, TouchableOpacity, Text, Linking, Image } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import * as MailCompose from 'expo-mail-composer';
 
-import logoImg from "../../assets/logo.png";
-import styles from "./styles";
+import logoImg from '../../assets/logo.png';
+import styles from './styles';
 
-export default function Detail({ navigation }) {
-  const message = `
-    Olá ${incident.name}, estou entrando em contato
-    pois gostaria de ajudar no caso "${
-      incident.title
-    }" com o valor de ${Intl.NumberFormat({
-    style: "currency",
-    curreny: "BRL"
-  }).format(incident.value)}
-  `;
-
+export default function Detail({ navigation, route }) {
   const incident = route.params.incident;
+
+  // prettier-ignore
+  const message = `
+  Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat({
+    style: 'currency',
+    curreny: 'BRL'
+  }).format(incident.value)}.
+  `;
 
   function sendMail() {
     MailCompose.composeAsync({
@@ -53,7 +51,7 @@ export default function Detail({ navigation }) {
 
         <Text style={styles.incidentProperty}>VALOR:</Text>
         <Text style={styles.incidentValue}>
-          {Intl.NumberFormat({ style: "currency", curreny: "BRL" }).format(
+          {Intl.NumberFormat({ style: 'currency', curreny: 'BRL' }).format(
             incident.value
           )}
         </Text>

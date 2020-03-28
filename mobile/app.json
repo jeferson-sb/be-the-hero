@@ -16,9 +16,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.jefersonsb.bethehero"
+    },
     "ios": {
+      "bundleIdentifier": "com.jefersonsb.bethehero",
       "supportsTablet": true
-    }
+    },
+    "assetBundlePatterns": ["**/*"]
   }
 }
