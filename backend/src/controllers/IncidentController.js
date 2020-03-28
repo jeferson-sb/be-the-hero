@@ -17,7 +17,10 @@ async function index(req, res) {
     ]);
 
   res.header('X-Total-Count', count['count(*)']);
-  return res.json(incidents);
+  return res.json({
+    length: count['count(*)'],
+    data: incidents
+  });
 }
 
 async function create(req, res) {

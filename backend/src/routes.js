@@ -1,16 +1,27 @@
-const routes = require("express").Router();
-const { celebrate, Segments, Joi } = require("celebrate");
+const routes = require('express').Router();
+const { celebrate, Segments, Joi } = require('celebrate');
 
-const OngController = require("./controllers/OngController");
-const IncidentController = require("./controllers/IncidentController");
-const ProfileController = require("./controllers/ProfileController");
-const SessionController = require("./controllers/SessionController");
+const OngController = require('./controllers/OngController');
+const IncidentController = require('./controllers/IncidentController');
+const ProfileController = require('./controllers/ProfileController');
+const SessionController = require('./controllers/SessionController');
 
-routes.post("/sessions", SessionController.create);
-
-routes.get("/ongs", OngController.index);
 routes.post(
-  "/ongs",
+  '/sessions',
+  celebrate({
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string().required()
+    }).unknown(),
+    [Segments.BODY]: Joi.object({
+      id: Joi.string().required()
+    })
+  }),
+  SessionController.create
+);
+
+routes.get('/ongs', OngController.index);
+routes.post(
+  '/ongs',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().required(),
@@ -30,9 +41,25 @@ routes.post(
   OngController.create
 );
 
-routes.post("/incidents", IncidentController.create);
+routes.post(
+  '/incidents',
+  celebrate({
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string().required()
+    }).unknown(),
+    [Segments.BODY]: Joi.object().keys({
+      title: Joi.string().required(),
+      description: Joi.string()
+        .required()
+        .max(170),
+      value: Joi.number().required()
+    })
+  }),
+  IncidentController.create
+);
+
 routes.get(
-  "/incidents",
+  '/incidents',
   celebrate({
     [Segments.QUERY]: Joi.object().keys({
       page: Joi.number()
@@ -41,7 +68,7 @@ routes.get(
   IncidentController.index
 );
 routes.delete(
-  "/incidents/:id",
+  '/incidents/:id',
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       id: Joi.number().required()
@@ -51,7 +78,7 @@ routes.delete(
 );
 
 routes.get(
-  "/profile",
+  '/profile',
   celebrate({
     [Segments.HEADERS]: Joi.object({
       authorization: Joi.string().required()

@@ -11,10 +11,10 @@ async function create(req, res) {
       whatsapp
     })
     .select('*');
-  if (checkOngExists) {
+  if (checkOngExists.length) {
     return res.status(400).json({ error: 'Ong already exists!' });
   }
-  const id = crypto.randomBytes(4).toString('HEX');
+  const id = generateUniqueId();
   await connection('ongs').insert({ id, name, email, whatsapp, city, uf });
   return res.status(201).json({ id });
 }
