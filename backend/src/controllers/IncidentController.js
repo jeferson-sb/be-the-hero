@@ -34,6 +34,7 @@ async function create(req, res) {
     value,
     ong_id
   });
+  console.log(id);
 
   return res.json({ id });
 }
