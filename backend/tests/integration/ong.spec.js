@@ -45,4 +45,10 @@ describe('ONG', () => {
     expect(session.body).toHaveProperty('name');
     expect(session.body.name).toBe('APAD');
   });
+
+  it('should not log in profile', async () => {
+    await request(app)
+      .get('/api/profile')
+      .expect(400);
+  });
 });
