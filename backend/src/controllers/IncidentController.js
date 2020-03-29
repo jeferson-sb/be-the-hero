@@ -18,10 +18,7 @@ async function index(req, res) {
   const total = count['count(*)'] || count['count'];
 
   res.header('X-Total-Count', total);
-  return res.json({
-    length: total,
-    data: incidents
-  });
+  return res.json(incidents);
 }
 
 async function create(req, res) {
