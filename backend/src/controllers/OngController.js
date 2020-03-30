@@ -1,4 +1,3 @@
-const crypto = require('crypto');
 const generateUniqueId = require('../utils/generateUniqueId');
 const connection = require('../database/connection');
 

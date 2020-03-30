@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Container, Content } from '../../assets/styles/components';
+import Container from '../../components/Container';
+import Content from '../../components/Content';
 
 export const NewIncidentContainer = styled(Container)`
   height: 100vh;

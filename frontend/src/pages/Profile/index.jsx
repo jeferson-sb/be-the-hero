@@ -4,7 +4,7 @@ import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { ButtonLink } from '../../assets/styles/components';
+import ButtonLink from '../../components/ButtonLink';
 import { ProfileContainer, Header, List } from './styles.js';
 
 import logoImg from '../../assets/logo.svg';

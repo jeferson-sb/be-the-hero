@@ -4,7 +4,8 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { Button, BackLink } from '../../assets/styles/components';
+import Button from '../../components/Button';
+import BackLink from '../../components/BackLink';
 import { RegisterContainer, RegisterContent } from './styles';
 
 import logoImg from '../../assets/logo.svg';

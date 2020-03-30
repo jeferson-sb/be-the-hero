@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../../assets/styles/components';
+import Container from '../../components/Container';
 
 export const LogonContainer = styled(Container)`
   justify-content: space-between;

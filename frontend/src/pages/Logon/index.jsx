@@ -4,7 +4,8 @@ import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { Button, BackLink } from '../../assets/styles/components';
+import Button from '../../components/Button';
+import BackLink from '../../components/BackLink';
 import { LogonContainer } from './styles';
 
 import heroesImg from '../../assets/heroes.png';
