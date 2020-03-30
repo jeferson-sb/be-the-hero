@@ -1,30 +1,33 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { FiLogIn } from "react-icons/fi";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FiLogIn } from 'react-icons/fi';
 
-import api from "../../services/api";
-import "./styles.css";
-import heroesImg from "../../assets/heroes.png";
-import logoImg from "../../assets/logo.svg";
+import api from '../../services/api';
+
+import { Button, BackLink } from '../../assets/styles/components';
+import { LogonContainer } from './styles';
+
+import heroesImg from '../../assets/heroes.png';
+import logoImg from '../../assets/logo.svg';
 
 export default function Logon() {
-  const [id, setId] = useState("");
+  const [id, setId] = useState('');
   const history = useHistory();
 
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const response = await api.post("/api/sessions", { id });
-      localStorage.setItem("ongId", id);
-      localStorage.setItem("ongName", response.data.name);
-      history.push("/profile");
+      const response = await api.post('/api/sessions', { id });
+      localStorage.setItem('ongId', id);
+      localStorage.setItem('ongName', response.data.name);
+      history.push('/profile');
     } catch (error) {
-      console.error("Falha no login, tente novamente.");
+      alert('Falha no login, tente novamente.');
     }
   }
 
   return (
-    <div className="logon-container">
+    <LogonContainer>
       <section className="form">
         <img src={logoImg} alt="Be the hero" />
         <form onSubmit={handleLogin}>
@@ -35,16 +38,14 @@ export default function Logon() {
             value={id}
             onChange={e => setId(e.target.value)}
           />
-          <button className="button" type="submit">
-            Entrar
-          </button>
+          <Button type="submit">Entrar</Button>
 
-          <Link className="back-link" to="/register">
+          <BackLink to="/register">
             <FiLogIn size={16} color="#e02041" /> Não tenho cadastro
-          </Link>
+          </BackLink>
         </form>
       </section>
       <img src={heroesImg} alt="Heroes" />
-    </div>
+    </LogonContainer>
   );
 }

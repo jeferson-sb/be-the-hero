@@ -3,7 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import api from '../../services/api';
-import './styles.css';
+
+import { ButtonLink } from '../../assets/styles/components';
+import { ProfileContainer, Header, List } from './styles.js';
+
 import logoImg from '../../assets/logo.svg';
 
 export default function Profile() {
@@ -31,7 +34,7 @@ export default function Profile() {
       });
       setIncidents(incidents.filter(incident => incident.id !== id));
     } catch (error) {
-      console.error('Erro ao deletar caso, tente novamente.');
+      alert('Erro ao deletar caso, tente novamente.');
     }
   }
 
@@ -41,20 +44,21 @@ export default function Profile() {
   }
 
   return (
-    <div className='profile-container'>
-      <header>
-        <img src={logoImg} alt='Be the Hero' />
+    <ProfileContainer>
+      <Header>
+        <Link to="/">
+          <img src={logoImg} alt="Be the Hero" />
+        </Link>
         <span>Bem vinda, {ongName}</span>
 
-        <Link className='button' to='/incidents/new'>
-          Cadastrar novo caso
-        </Link>
+        <ButtonLink to="/incidents/new">Cadastrar novo caso</ButtonLink>
+
         <button onClick={handleLogout}>
-          <FiPower size={18} color='#e02141' />
+          <FiPower size={18} color="#e02141" />
         </button>
-      </header>
+      </Header>
       <h1>Casos cadastrados</h1>
-      <ul>
+      <List>
         {incidents.map(incident => (
           <li key={incident.id}>
             <strong>CASO:</strong>
@@ -71,13 +75,13 @@ export default function Profile() {
 
             <button
               onClick={() => handleDeleteIncident(incident.id)}
-              type='button'
+              type="button"
             >
-              <FiTrash2 size={20} color='#a8a8b3' />
+              <FiTrash2 size={20} color="#a8a8b3" />
             </button>
           </li>
         ))}
-      </ul>
-    </div>
+      </List>
+    </ProfileContainer>
   );
 }

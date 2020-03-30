@@ -1,18 +1,21 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 
-import api from "../../services/api";
-import "./styles.css";
-import logoImg from "../../assets/logo.svg";
+import api from '../../services/api';
+
+import { Button, BackLink } from '../../assets/styles/components';
+import { NewIncidentContainer, NewIncidentContent } from './styles';
+
+import logoImg from '../../assets/logo.svg';
 
 export default function NewIncident() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [value, setValue] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [value, setValue] = useState('');
   const history = useHistory();
 
-  const ongId = localStorage.getItem("ongId");
+  const ongId = localStorage.getItem('ongId');
 
   async function handleNewIncident(e) {
     e.preventDefault();
@@ -23,20 +26,20 @@ export default function NewIncident() {
     };
 
     try {
-      await api.post("/api/incidents", data, {
+      await api.post('/api/incidents', data, {
         headers: {
           Authorization: ongId
         }
       });
-      history.push("/profile");
+      history.push('/profile');
     } catch (error) {
-      console.error("Erro ao cadastrar caso");
+      alert('Erro ao cadastrar caso');
     }
   }
 
   return (
-    <div className="new-incident-container">
-      <div className="content">
+    <NewIncidentContainer>
+      <NewIncidentContent>
         <section>
           <img src={logoImg} alt="Be The Hero" />
           <h1>Cadastrar novo caso</h1>
@@ -44,9 +47,9 @@ export default function NewIncident() {
             Descreva o caso detalhadamente para encontrar um herói para resolver
             isso.
           </p>
-          <Link className="back-link" to="/profile">
+          <BackLink className="back-link" to="/profile">
             <FiArrowLeft size={16} color="#e02041" /> Voltar para home
-          </Link>
+          </BackLink>
         </section>
         <form onSubmit={handleNewIncident}>
           <input
@@ -66,11 +69,9 @@ export default function NewIncident() {
             onChange={e => setValue(e.target.value)}
             placeholder="Valor em reais"
           />
-          <button type="submit" className="button">
-            Cadastrar
-          </button>
+          <Button type="submit">Cadastrar</Button>
         </form>
-      </div>
-    </div>
+      </NewIncidentContent>
+    </NewIncidentContainer>
   );
 }

@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 
-import api from "../../services/api";
-import "./styles.css";
-import logoImg from "../../assets/logo.svg";
+import api from '../../services/api';
+
+import { Button, BackLink } from '../../assets/styles/components';
+import { RegisterContainer, RegisterContent } from './styles';
+
+import logoImg from '../../assets/logo.svg';
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [city, setCity] = useState("");
-  const [uf, setUf] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [city, setCity] = useState('');
+  const [uf, setUf] = useState('');
 
   const history = useHistory();
 
@@ -26,17 +29,17 @@ export default function Register() {
         uf
       };
 
-      const response = await api.post("/api/ongs", data);
-      console.log(`Seu ID de acesso: ${response.data.id}`);
-      history.push("/");
+      const response = await api.post('/api/ongs', data);
+      alert(`Seu ID de acesso: ${response.data.id}`);
+      history.push('/');
     } catch (error) {
-      console.error("Erro no cadastro");
+      alert('Erro no cadastro');
     }
   }
 
   return (
-    <div className="register-container">
-      <div className="content">
+    <RegisterContainer>
+      <RegisterContent>
         <section>
           <img src={logoImg} alt="Be The Hero" />
           <h1>Cadastro</h1>
@@ -44,9 +47,9 @@ export default function Register() {
             Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem
             os casos da sua ONG.
           </p>
-          <Link className="back-link" to="/">
+          <BackLink to="/">
             <FiArrowLeft size={16} color="#e02041" /> Já tenho cadastro
-          </Link>
+          </BackLink>
         </section>
         <form onSubmit={handleRegister}>
           <input
@@ -87,11 +90,9 @@ export default function Register() {
               required
             />
           </div>
-          <button type="submit" className="button">
-            Cadastrar
-          </button>
+          <Button type="submit">Cadastrar</Button>
         </form>
-      </div>
-    </div>
+      </RegisterContent>
+    </RegisterContainer>
   );
 }
