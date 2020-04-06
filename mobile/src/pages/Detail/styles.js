@@ -1,68 +1,42 @@
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import styled from 'styled-components/native';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: Constants.statusBarHeight + 20
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  incident: {
-    padding: 24,
-    borderRadius: 8,
-    backgroundColor: '#fff',
-    marginBottom: 16,
-    marginTop: 48
-  },
-  incidentProperty: {
-    fontSize: 14,
-    color: '#41414d',
-    fontWeight: 'bold',
-    marginTop: 24
-  },
-  incidentValue: {
-    marginTop: 8,
-    fontSize: 15,
-    color: '#737380'
-  },
-  heroContainer: {
-    padding: 24,
-    borderRadius: 8,
-    backgroundColor: '#fff',
-    marginBottom: 16
-  },
-  heroTitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#13131a',
-    lineHeight: 30
-  },
-  heroDescription: {
-    fontSize: 15,
-    color: '#737380',
-    marginTop: 16
-  },
-  actions: {
-    marginTop: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  action: {
-    backgroundColor: '#e02041',
-    borderRadius: 8,
-    height: 50,
-    width: '48%',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  actionText: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: 'bold'
-  }
-});
+export const HeroContainer = styled.View`
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 16px;
+`;
+
+export const HeroTitle = styled.Text`
+  font-weight: bold;
+  font-size: 20px;
+  color: #13131a;
+  line-height: 30px;
+`;
+
+export const HeroDescription = styled.Text`
+  font-size: 15px;
+  color: #737380;
+  margin-top: 16px;
+`;
+
+export const ActionsContainer = styled.View`
+  margin-top: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const ActionButton = styled.TouchableOpacity`
+  background-color: #e02041;
+  border-radius: 8px;
+  height: 50px;
+  width: 48%;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ActionButtonText = styled.Text`
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+`;

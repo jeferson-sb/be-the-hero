@@ -53,7 +53,7 @@ $ yarn dev
 ## TODO
 
 - [x] Criar release 1.0.0 do app
-- [ ] Adicionar Styled Components
+- [x] Adicionar Styled Components
 - [x] Adicionar mais testes
 - [ ] Adicionar autenticação JWT
 - [ ] Exibir total de apoiadores(heroes)

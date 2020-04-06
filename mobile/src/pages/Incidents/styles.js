@@ -1,64 +1,32 @@
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import styled from 'styled-components/native';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: Constants.statusBarHeight + 20
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  headerText: {
-    fontSize: 15,
-    color: '#737380'
-  },
-  headerTextBold: {
-    fontWeight: 'bold'
-  },
-  title: {
-    fontSize: 30,
-    marginBottom: 16,
-    marginTop: 48,
-    color: '#13131a',
-    fontWeight: 'bold'
-  },
-  description: {
-    fontSize: 16,
-    lineHeight: 24,
-    color: '#737380'
-  },
-  incidentList: {
-    marginTop: 32
-  },
-  incident: {
-    padding: 24,
-    borderRadius: 8,
-    backgroundColor: '#fff',
-    marginBottom: 16
-  },
-  incidentProperty: {
-    fontSize: 14,
-    color: '#41414d',
-    fontWeight: 'bold'
-  },
-  incidentValue: {
-    marginTop: 8,
-    fontSize: 15,
-    marginBottom: 24,
-    color: '#737380'
-  },
-  detailsButton: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  detailsButtonText: {
-    color: '#e02041',
-    fontSize: 15,
-    fontWeight: 'bold'
-  }
-});
+export const HeaderText = styled.Text`
+  font-size: 15px;
+  color: #737380;
+`;
+
+export const Title = styled.Text`
+  font-size: 30px;
+  margin-bottom: 16px;
+  margin-top: 48px;
+  color: #13131a;
+  font-weight: bold;
+`;
+
+export const Description = styled.Text`
+  font-size: 16px;
+  line-height: 24px;
+  color: #737380;
+`;
+
+export const DetailsButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const DetailsButtonText = styled.Text`
+  color: #e02041;
+  font-size: 15px;
+  font-weight: bold;
+`;

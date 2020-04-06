@@ -1,10 +1,24 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, Linking, Image } from 'react-native';
+import { TouchableOpacity, Linking, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import * as MailCompose from 'expo-mail-composer';
 
 import logoImg from '../../assets/logo.png';
-import styles from './styles';
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+import {
+  IncidentCard,
+  IncidentProperty,
+  IncidentValue,
+} from '../../components/IncidentCard';
+import {
+  HeroContainer,
+  HeroTitle,
+  HeroDescription,
+  ActionsContainer,
+  ActionButton,
+  ActionButtonText,
+} from './styles';
 
 export default function Detail({ navigation, route }) {
   const incident = route.params.incident;
@@ -21,7 +35,7 @@ export default function Detail({ navigation, route }) {
     MailCompose.composeAsync({
       subject: `Herói do caso : ${incident.title}`,
       recipients: [incident.email],
-      body: message
+      body: message,
     });
   }
 
@@ -32,45 +46,45 @@ export default function Detail({ navigation, route }) {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <Container>
+      <Header>
         <Image source={logoImg} />
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Feather name="arrow-left" size={28} color="#e02041" />
         </TouchableOpacity>
-      </View>
+      </Header>
 
-      <View style={styles.incident}>
-        <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG:</Text>
-        <Text style={styles.incidentValue}>
+      <IncidentCard style={{ marginTop: 40 }}>
+        <IncidentProperty>ONG:</IncidentProperty>
+        <IncidentValue>
           {incident.name} de {incident.city}/{incident.uf}
-        </Text>
+        </IncidentValue>
 
-        <Text style={styles.incidentProperty}>CASO:</Text>
-        <Text style={styles.incidentValue}>{incident.title}</Text>
+        <IncidentProperty>CASO:</IncidentProperty>
+        <IncidentValue>{incident.title}</IncidentValue>
 
-        <Text style={styles.incidentProperty}>VALOR:</Text>
-        <Text style={styles.incidentValue}>
+        <IncidentProperty>VALOR:</IncidentProperty>
+        <IncidentValue>
           {Intl.NumberFormat({ style: 'currency', curreny: 'BRL' }).format(
             incident.value
           )}
-        </Text>
-      </View>
+        </IncidentValue>
+      </IncidentCard>
 
-      <View style={styles.heroContainer}>
-        <Text style={styles.heroTitle}>Salve o dia!</Text>
-        <Text style={styles.heroTitle}>Seja o heroi desse caso.</Text>
-        <Text style={styles.heroDescription}>Entre em contato.</Text>
+      <HeroContainer>
+        <HeroTitle>Salve o dia!</HeroTitle>
+        <HeroTitle>Seja o heroi desse caso.</HeroTitle>
+        <HeroDescription>Entre em contato.</HeroDescription>
 
-        <View style={styles.actions}>
-          <TouchableOpacity style={styles.action} onPress={sendWhatsApp}>
-            <Text style={styles.actionText}>WhatsApp</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.action} onPress={sendMail}>
-            <Text style={styles.actionText}>E-mail</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+        <ActionsContainer>
+          <ActionButton onPress={sendWhatsApp}>
+            <ActionButtonText>WhatsApp</ActionButtonText>
+          </ActionButton>
+          <ActionButton onPress={sendMail}>
+            <ActionButtonText>E-mail</ActionButtonText>
+          </ActionButton>
+        </ActionsContainer>
+      </HeroContainer>
+    </Container>
   );
 }
