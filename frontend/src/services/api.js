@@ -1,9 +1,14 @@
 import axios from 'axios';
 
-const localUrl = 'http://localhost:3333';
+let apiUrl;
+if(process.env.NODE_ENV === 'production'){
+  apiUrl = process.env.REACT_APP_API_URI
+}else{
+  apiUrl = 'http://localhost:3333';
+}
 
 const api = axios.create({
-  baseURL: localUrl || process.env.REACT_APP_API_URI
+  baseURL: apiUrl;
 });
 
 export default api;
