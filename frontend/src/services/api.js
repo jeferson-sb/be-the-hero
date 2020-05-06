@@ -8,7 +8,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 const api = axios.create({
-  baseURL: apiUrl;
+  baseURL: apiUrl,
 });
 
 export default api;
