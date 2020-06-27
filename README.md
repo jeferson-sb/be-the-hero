@@ -15,6 +15,7 @@ O projeto propõe o auxílio a organizações não governamentais em suas campan
 Você pode cadastrar sua ONG e seu(s) caso(s) e obter contato dos apoiadores.
 
 ## Ferramentas
+
 - [Node.js](https://nodejs.org/en/docs/)
 - [React](https://reactjs.org/)
 - [React Native](http://reactnative.dev/)
@@ -60,6 +61,7 @@ $ cd backend
 $ npx knex migrate:latest
 $ yarn dev
 ```
+
 [Veja todos os endpoints](./backend/README.md)
 
 ## TODO
@@ -74,3 +76,5 @@ $ yarn dev
 ## 📝 Licença
 
 Este projeto está sob a licença [MIT](https://github.com/jeferson-sb/be-the-hero/blob/master/LICENSE.md)
+
+`Made with ❤ by Jeferson © 2020`
