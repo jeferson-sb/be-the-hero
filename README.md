@@ -12,6 +12,17 @@
 ## 💡 Projeto
 
 O projeto propõe o auxílio a organizações não governamentais em suas campanhas financeiras.
+Você pode cadastrar sua ONG e seu(s) caso(s) e obter contato dos apoiadores.
+
+## Ferramentas
+- [Node.js](https://nodejs.org/en/docs/)
+- [React](https://reactjs.org/)
+- [React Native](http://reactnative.dev/)
+- [React Navigation](https://reactnavigation.org/)
+- [Express](http://expressjs.com/)
+- [Knex](http://knexjs.org/)
+- [Jest](https://jestjs.io/)
+- [Styled Components](https://styled-components.com/)
 
 ## 💻 Demo
 
@@ -49,6 +60,7 @@ $ cd backend
 $ npx knex migrate:latest
 $ yarn dev
 ```
+[Veja todos os endpoints](./backend/README.md)
 
 ## TODO
 
