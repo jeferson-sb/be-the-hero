@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -23,14 +23,14 @@ export default function NewIncident() {
     const data = {
       title,
       description,
-      value
+      value,
     };
 
     try {
       await api.post('/api/incidents', data, {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       });
       history.push('/profile');
     } catch (error) {
@@ -56,18 +56,18 @@ export default function NewIncident() {
           <input
             type="text"
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder="Título do Caso"
           />
           <textarea
             value={description}
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             placeholder="Descrição do caso"
           ></textarea>
           <input
             type="text"
             value={value}
-            onChange={e => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
             placeholder="Valor em reais"
           />
           <Button type="submit">Cadastrar</Button>

@@ -14,7 +14,7 @@
 O projeto propõe o auxílio a organizações não governamentais em suas campanhas financeiras.
 Você pode cadastrar sua ONG e seu(s) caso(s) e obter contato dos apoiadores.
 
-## Ferramentas
+## 🛠 Ferramentas
 
 - [Node.js](https://nodejs.org/en/docs/)
 - [React](https://reactjs.org/)
