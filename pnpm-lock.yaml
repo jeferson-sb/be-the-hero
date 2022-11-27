@@ -88,7 +88,7 @@ importers:
   packages/web:
     specifiers:
       '@testing-library/jest-dom': ^5.16.5
-      '@testing-library/react': ^13.0.0
+      '@testing-library/react': ^12.1.4
       '@testing-library/user-event': ^14.4.3
       '@vitejs/plugin-react': ^2.2.0
       axios: ^1.2.0
@@ -107,7 +107,7 @@ importers:
       vite: ^3.2.3
     dependencies:
       '@testing-library/jest-dom': 5.16.5
-      '@testing-library/react': 13.4.0_sfoxds7t5ydpegc3knd667wn6m
+      '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
       '@testing-library/user-event': 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
       axios: 1.2.0
       react: r2.cnpmjs.org/react/17.0.2
@@ -1660,16 +1660,16 @@ packages:
       redent: r2.cnpmjs.org/redent/3.0.0
     dev: false
 
-  /@testing-library/react/13.4.0_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
+  /@testing-library/react/12.1.5_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: <18.0.0
+      react-dom: <18.0.0
     dependencies:
       '@babel/runtime': 7.20.1
       '@testing-library/dom': 8.19.0
-      '@types/react-dom': 18.0.9
+      '@types/react-dom': 17.0.18
       react: r2.cnpmjs.org/react/17.0.2
       react-dom: r2.cnpmjs.org/react-dom/17.0.2_react@17.0.2
     dev: false
@@ -1727,14 +1727,14 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: false
 
-  /@types/react-dom/18.0.9:
-    resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
+  /@types/react-dom/17.0.18:
+    resolution: {integrity: sha512-rLVtIfbwyur2iFKykP2w0pl/1unw26b5td16d5xMgp7/yjTHomkyxPYChFoCr/FtEX1lN9wY6lFj1qvKdS5kDw==}
     dependencies:
-      '@types/react': 18.0.25
+      '@types/react': 17.0.52
     dev: false
 
-  /@types/react/18.0.25:
-    resolution: {integrity: sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==}
+  /@types/react/17.0.52:
+    resolution: {integrity: sha512-vwk8QqVODi0VaZZpDXQCmEmiOuyjEFPY7Ttaw5vjM112LOq37yz1CDJGrRJwA1fYEq4Iitd5rnjd1yWAc/bT+A==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': r2.cnpmjs.org/@types/scheduler/0.16.2
