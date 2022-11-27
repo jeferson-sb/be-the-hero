@@ -46,6 +46,7 @@ export default {
       database: config.dbname,
       user: config.dbuser,
       password: config.dbpwd,
+      ssl: { rejectUnauthorized: false }
     },
     pool: {
       min: 2,
