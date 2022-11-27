@@ -1,5 +1,5 @@
 import generateUniqueId from '../utils/generateUniqueId.js'
-import connection from '../database/connection.cjs'
+import connection from '../database/connection.js'
 
 async function create(req, res) {
   const { name, email, whatsapp, city, uf } = req.body;

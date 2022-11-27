@@ -6,6 +6,7 @@ dotenv.config({ path: path.join(root, '.env') });
 
 const config = {
   port: process.env.PORT || 3333,
+  mode: process.env.NODE_ENV,
   dbhost: process.env.POSTGRES_DBHOST,
   dbname: process.env.POSTGRES_DBNAME,
   dbport: process.env.POSTGRES_PORT,

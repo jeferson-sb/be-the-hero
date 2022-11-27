@@ -1,4 +1,4 @@
-import connection from '../database/connection.cjs'
+import connection from '../database/connection.js'
 
 async function index(req, res) {
   const { page = 1 } = req.query;

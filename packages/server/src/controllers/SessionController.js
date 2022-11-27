@@ -1,4 +1,4 @@
-import connection from '../database/connection.cjs'
+import connection from '../database/connection.js'
 
 async function create(req, res) {
   const { id } = req.body;
