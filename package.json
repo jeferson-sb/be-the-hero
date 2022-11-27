@@ -1,0 +1,14 @@
+{
+  "name": "be-the-hero",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "web:dev": "pnpm -F './packages/web' dev",
+    "server:dev": "pnpm -F './packages/server' dev",
+    "server:db:migrate": "pnpm -F './packages/server' migrate"
+  },
+  "author": "Jeferson Brito",
+  "license": "MIT"
+}

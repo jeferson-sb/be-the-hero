@@ -29,49 +29,38 @@ Você pode cadastrar sua ONG e seu(s) caso(s) e obter contato dos apoiadores.
 
 [https://be-thehero.netlify.com/](https://be-thehero.netlify.com/)
 
-### 📱 App
-
-[Download para Android](https://github.com/jeferson-sb/be-the-hero/releases/tag/1.0.0)
-
 ## 🚀 Quick start
 
 ### Instalação
 
 ```bash
-$ cd be-the-hero
-$ cd frontend && yarn
-```
-
-```bash
-$ cd .. && cd backend
-$ yarn
+$ npm install -g pnpm
+$ pnpm install
 ```
 
 ### Utilização
 
+Copie as variáveis de ambiente troque os valores com base no seu sistema.
+
 ```bash
-$ cd frontend
-$ yarn start
+$ cp packages/server/.env.example packages/server/.env
+$ cp packages/web/.env.example packages/web/.env.local
 ```
 
-> Abra outro terminal na mesma pasta e rode
+Rode o frontend
 
 ```bash
-$ cd backend
-$ npx knex migrate:latest
-$ yarn dev
+$ pnpm web:dev
+```
+
+> Abra outro terminal na raiz do projeto e execute
+
+```bash
+$ pnpm server:db:migrate
+$ pnpm server:dev
 ```
 
 [Veja todos os endpoints](./backend/README.md)
-
-## TODO
-
-- [x] Criar release 1.0.0 do app
-- [x] Adicionar Styled Components
-- [x] Adicionar mais testes
-- [ ] Adicionar autenticação JWT
-- [ ] Exibir total de apoiadores(heroes)
-- [ ] Exibir o progresso do arrecadado.
 
 ## 📝 Licença
 
